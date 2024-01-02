@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="accounts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-........" crossorigin="anonymous" />
+    <title>About-WheelZ onthe Go</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+   body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(v300batch2-nunoon-13-removebg.png);
+  background-size: cover;
+  opacity: 0.5; /* Adjust the opacity value for the background image */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+body {
+  background: #8e79a9; /* Background color appears in front of the image */
+  z-index: 0; /* Set a z-index to make sure the content is in front of the pseudo-element */
+}
+
+
+.navbar {
+    
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.8); /* Adjust the background color and alpha as needed */
+  
+
+}
+
+
+
+
+
+        .nav-items {
+           font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the navigation items */
+            flex-grow: 1; /* Occupy remaining space */
+            font-size: 20px;
+           
+        }
+
+        .nav-item {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            position: relative;
+            overflow: hidden;
+            font-size: 25px;
+
+        }
+
+        .nav-item::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+            
+        }
+
+        .nav-item:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search-icon {
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .icon {
+            color: white;
+            cursor: pointer;
+            font-size: 30px;
+            margin-right: 10px; /* Adjust as needed */
+        }
+        .icon:hover {
+    background-color: rgb(250, 207, 150); 
+    transition: background-color 0.3s ease; 
+}
+
+      
+        .logo img {
+            height: 60px; /* Adjust the height as needed */
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+        .Name {
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+       
+        margin-top: 5px;
+            position: relative;
+            overflow: hidden;
+
+        }
+       
+
+    .search-icon {
+        color: rgb(255, 255, 255); /* Change to your desired color */
+        font-size: 20px; /* Adjust the font size as needed */
+    }
+        @media (max-width: 768px) {
+            .nav-items {
+                display: none;
+            }
+
+            .navbar.responsive .nav-items {
+                display: flex;
+                justify-content: center;
+                width: 100%; /* Occupy full width on mobile */
+            }
+
+            .navbar.responsive .icon {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+
+            .search-box {
+                order: -1; /* Move search box to the left on mobile */
+            }
+            
+        }
+
+/*Account */
+        .ui-w-80 {
+            width: 80px !important;
+            height: auto;
+        }
+
+        .btn-default {
+            border-color:white;
+            background:  #fd8e45;
+            color: white;
+        }
+        .btn-default:hover{
+           
+            background: rgb(137,69,116);
+            color: white;
+        }
+
+        label.btn {
+            margin-bottom: 0;
+        }
+
+        .btn-outline-primary {
+          border-color:white;
+            background:  #fd8e45;
+            color: white;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .text-light {
+            color: white !important;
+        }
+
+        .card {
+            background-clip: padding-box;
+            box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+        }
+
+        .row-bordered {
+            overflow: hidden;
+        }
+
+        .account-settings-fileinput {
+            position: absolute;
+            visibility: hidden;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .account-settings-links .list-group-item.active {
+            font-weight: bold !important;
+        }
+
+        html:not(.dark-style) .account-settings-links .list-group-item.active {
+            background: transparent !important;
+        }
+
+        .light-style .account-settings-links .list-group-item {
+            padding: 0.85rem 1.5rem;
+            border-color: rgba(24, 28, 33, 0.03) !important;
+        }
+
+        .light-style .account-settings-links .list-group-item.active {
+            color: #4e5155 !important;
+        }
+
+        .material-style .account-settings-links .list-group-item {
+            padding: 0.85rem 1.5rem;
+            border-color: rgba(24, 28, 33, 0.03) !important;
+        }
+
+        .material-style .account-settings-links .list-group-item.active {
+            color: #4e5155 !important;
+        }
+
+        .dark-style .account-settings-links .list-group-item {
+            padding: 0.85rem 1.5rem;
+            border-color: rgba(255, 255, 255, 0.03) !important;
+        }
+
+        .dark-style .account-settings-links .list-group-item.active {
+            color: white !important;
+            
+        }
+
+        .light-style .account-settings-links .list-group-item.active {
+            color: white !important;
+           
+        }
+
+        .light-style .account-settings-links .list-group-item {
+            padding: 0.85rem 1.5rem;
+            border-color: rgba(24, 28, 33, 0.03) !important;
+            
+        }
+
+        .custom-background {
+          background-color: rgb(43,46,74);
+        padding: 15px; /* Add this to provide some padding inside the container */
+        border-radius: 40px; /* Add this if you want rounded corners */
+        border: 2px solid black;
+        box-shadow: 20px 20px 20px #5e4979;
+        margin-bottom: 15px; /* Add this to provide some space between sections */
+        color: white;
+        font-weight: bold;
+    }
+
+
+     /*slider logo*/
+     @keyframes slide {
+    form {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+  }
+
+.logos {
+    overflow: hidden;
+    padding: 60px 0;
+
+background-image: url(vbatch22.png);
+   
+    white-space: nowrap;
+    position: relative;
+
+  }
+  .logos:before ,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width:250px ;
+    height: 100%;
+    content: "";
+    z-index: 2;
+
+  } 
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255,255,255,0), rgb(142,121,169));
+   
+}
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgb(142,121,169));
+   
+}
+
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  .logos-slide {
+    display: inline-block;
+
+    animation: 35s slide infinite linear;
+  }
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }
+  
+
+  footer {
+      background-color:rgb(43,46,74);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      flex: 1;
+      text-align: left;
+    }
+
+    footer h2 {
+      color: #fbb710; /* Yellow color for "GET IN TOUCH" */
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin: 5px 0;
+    }
+
+    footer .newsletter {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    footer input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      background-color:rgb(247,125,10); /* Yellow color for the button */
+      color: #333;
+      padding: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    footer button:hover {
+            background-color: rgb(180, 87, 1);
+        }
+    footer a {
+        text-decoration: none;
+        color: white;
+    }  
+
+    /* Main container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* User icon button */
+.dropdown .nav-item {
+  padding: 10px;
+  border: none;
+  background: none; /* Remove the background color */
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  transform-origin: top right;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Hover effect on links */
+.dropdown-content a:hover {
+  background-color: #6c3a8d;
+}
+
+/* Show dropdown on button click */
+.dropdown.active .dropdown-content {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Main navigation container */
+.nav-items {
+  display: flex;
+}
+
+/* Individual navigation item */
+.nav-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Dropdown container */
+.dropdowns {
+  position: relative;
+}
+
+/* Dropdown button */
+.services-dropdown {
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.services-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Active state for showing the dropdown */
+.services-menu.active {
+  display: block;
+}
+
+/* Dropdown links */
+.services-menu a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover effect on links */
+.services-menu a:hover {
+    background-color: #6c3a8d;
+}
+
+.dropdowns.active .dropdown-contents {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.dropdowns {
+  position: relative;
+  display: inline-block;
+}
+
+/* User icon button */
+.dropdowns .nav-item {
+  padding: 10px;
+  border: none;
+  background: none; /* Remove the background color */
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-contents {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  transform-origin: top right;
+}
+
+/* Dropdown links */
+.dropdown-contents a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="navbar" id="myNavbar">
+    <!-- <div class="icon" onclick="toggleNavbar()">&#9776;</div> -->
+    <div class="logo">
+        <img src="ourlogo.png">
+    </div>
+
+    <a href="Home.html" class="Name"><b>WheelZ onthe Go</b></a>
+
+    <div class="nav-items">
+        <a href="Home.html" class="nav-item">Home</a>
+        <div class="dropdowns">
+          <button class="nav-item services-dropdown" onclick="toggleDropdown()">
+            Services <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="dropdown-contents services-menu">
+            <a href="Rentee.html" class="nav-link">
+                <i class="fas fa-car"></i> Rent Car
+            </a>
+            <a href="booking.html" class="nav-link">
+                <i class="fas fa-calendar-alt"></i> Booking
+            </a>
+           
+          </div>
+        </div>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="Contact.html" class="nav-item">Contact</a>
+      </div>
+   
+    <div class="search-box">
+      <input type="text" placeholder="Search..." id="searchInput">
+      <button style="border: none; padding: 8px; cursor: pointer; background-color: transparent;" onclick="performSearch()">
+          <i class="search-icon bx bx-search-alt"></i>
+      </button>
+      <div class="dropdown">
+        <button class="nav-item">
+          <i class="fas fa-user"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="account.html" class="nav-link">
+                <i class="fas fa-user"></i> Account Info
+            </a>
+            <a href="rentacarweb.html" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+      </div>
+  </div>
+</div>
+<br>
+
+<div class="container light-style flex-grow-1 container-p-y">
+  <h2 class="font-weight-bold py-3 mb-4">
+     <b> Account settings</b>
+  </h2>
+  <div class="card overflow-hidden custom-background ">
+      <div class="row no-gutters row-bordered row-border-light">
+          <div class="col-md-3 pt-0">
+              <div class="list-group list-group-flush account-settings-links" style="background-color: #5e4979;  border-radius: 20px;">
+                  <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#your-car">Your cars</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#car-given-on-rent">Cars on rent right now</a>
+       <a class="list-group-item list-group-item-action" data-toggle="list" href="#cars-youve-taken-on-rent">Cars You've taken on rent</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notifications</a>
+              </div>
+          </div>
+          <div class="col-md-9">
+              <div class="tab-content">
+                  <div class="tab-pane fade active show" id="account-general">
+                      <div class="card-body media align-items-center">
+                          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-80">
+                          <div class="media-body ml-4">
+                              <label class="btn btn-default">
+                                  Upload new photo
+                                  <input type="file" class="account-settings-fileinput" id="profile-image-input" onchange="previewImage()">
+                              </label> &nbsp;
+                              <button type="button" class="btn btn-default md-btn-flat" onclick="resetImage()">Reset</button>
+                              <div class="text-light small mt-1">Allowed JPG, GIF, or PNG. Max size of 800K</div>
+                          </div>
+                      </div>
+                      <hr class="border-light m-0">
+                      <div class="card-body">
+                          <div class="form-group">
+                              <label class="form-label">Username</label>
+                              <input type="text" class="form-control mb-1" value="nmaxwell">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Name</label>
+                              <input type="text" class="form-control" value="Nelle Maxwell">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">E-mail</label>
+                              <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
+                              <div class="alert alert-warning mt-3">
+                                  Your email is not confirmed. Please check your inbox.<br>
+                                  <a href="javascript:void(0)">Resend confirmation</a>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Company</label>
+                              <input type="text" class="form-control" value="Company Ltd.">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tab-pane fade" id="account-change-password">
+                      <div class="card-body pb-2">
+                          <div class="form-group">
+                              <label class="form-label">Current password</label>
+                              <input type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">New password</label>
+                              <input type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Repeat new password</label>
+                              <input type="password" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tab-pane fade" id="your-car">
+                      <div class="card-body pb-2">
+                          <div class="form-group">
+                              <label class="form-label">Car Model</label>
+                              <input type="text" class="form-control" value="Your Car Model">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Year of Manufacture</label>
+                              <input type="text" class="form-control" value="2022">
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Color</label>
+                              <input type="text" class="form-control" value="Red">
+                          </div>
+                      </div>
+                  </div>
+                    <div class="tab-pane fade" id="car-given-on-rent">
+  <div class="card-body pb-2">
+      <div class="form-group">
+          <label class="form-label">Car Model</label>
+          <input type="text" class="form-control" value="Car Given on Rent Model">
+      </div>
+      <div class="form-group">
+          <label class="form-label">Rent Amount</label>
+          <input type="text" class="form-control" value="$50 per day">
+      </div>
+      <div class="form-group">
+          <label class="form-label">Rental Duration</label>
+          <select class="custom-select" id="rental-duration">
+              <option value="1">1 Day</option>
+              <option value="3">3 Days</option>
+              <option value="7">1 Week</option>
+              <!-- Add more options as needed -->
+          </select>
+      </div>
+      <!-- Countdown Timer -->
+      <div class="form-group">
+          <label class="form-label">Time Remaining</label>
+          <div id="countdown-timer" class="text-danger"></div>
+      </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="cars-youve-taken-on-rent">
+                      <div class="card-body pb-2" id="taken-on-rent-info">
+                          <!-- Dynamic content will be added here -->
+                      </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="account-notifications">
+                      <div class="card-body pb-2">
+                          <h6 class="mb-4">Activity</h6>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input" checked>
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">Email me when someone comments on my article</span>
+                              </label>
+                          </div>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input" checked>
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">Email me when someone answers on my forum
+                                      thread</span>
+                              </label>
+                          </div>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input">
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">Email me when someone follows me</span>
+                              </label>
+                          </div>
+                      </div>
+                      <hr class="border-light m-0">
+                      <div class="card-body pb-2">
+                          <h6 class="mb-4">Application</h6>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input" checked>
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">News and announcements</span>
+                              </label>
+                          </div>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input">
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">Weekly product updates</span>
+                              </label>
+                          </div>
+                          <div class="form-group">
+                              <label class="switcher">
+                                  <input type="checkbox" class="switcher-input" checked>
+                                  <span class="switcher-indicator">
+                                      <span class="switcher-yes"></span>
+                                      <span class="switcher-no"></span>
+                                  </span>
+                                  <span class="switcher-label">Weekly blog digest</span>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  <div class="text-right mt-3">
+      <button type="button" class="btn btn-default">Save changes</button>&nbsp;
+      <button type="button" class="btn btn-default">Cancel</button>
+  </div>
+</div>
+
+
+<br><br><br><br><br><br><br>
+
+<div class="logos">
+    <div class="logos-slide">
+    <img src="bmw.png">
+    <img src="audi.png">
+    <img src="suzuki.png">
+    <img src="honda.png">
+    <img src="mitsubishi.png">
+    <img src="hyundai.png">
+    <img src="ford.png">
+    <img src="kia.png">
+    <img src="changan.png">
+    <img src="toyota.png">
+    </div>
+    <div class="logos-slide">
+        <img src="bmw.png">
+        <img src="audi.png">
+        <img src="suzuki.png">
+        <img src="honda.png">
+        <img src="mitsubishi.png">
+        <img src="hyundai.png">
+        <img src="ford.png">
+        <img src="kia.png">
+        <img src="changan.png">
+        <img src="toyota.png">
+        </div>
+    </div>
+<footer>
+    <div>
+      <h2>GET IN TOUCH</h2>
+      <p>Location, City, Country</p>
+      <p>+012 345 67890</p>
+      <p>info@example.com</p>
+    </div>
+
+    <div>
+      <h2>FOLLOW US</h2>
+      <ul>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>USEFUL LINKS</h2>
+      <ul>
+        <a href="#"><li>Private Policy</li></a>
+       <a href="#"> <li>Term & Conditions</li></a>
+       <a href="#"> <li>New Member Registration</li></a>
+       <a href="#"><li>Affiliate Programme</li></a>
+       <a href="#"><li>Return & Refund</li></a>
+       <a href="#"> <li>Help & FAQs</li></a>
+       <a href="#"> <li>CAR GALLERY</li></a>
+      </ul>
+    </div>
+    <div>
+        <div class="newsletter">
+            <h2>NEWSLETTER</h2>
+            <p>Stay updated with our latest news and offers!  And give us a feedback about how was your experience here on our site.</p>
+            <input type="email" placeholder="Your Feedback">
+           <button>Submit</button>
+          </div>
+      </div>
+    
+
+  </footer>
+  
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    function performSearch() {
+        var searchTerm = document.getElementById('searchInput').value;
+        // You can implement your search logic here, for now, let's just log the search term
+        console.log('Search term:', searchTerm);
+        // Add your search logic or redirect to the search results page as needed
+    }
+
+    // Add an event listener to handle "Enter" key press in the search input
+    document.getElementById('searchInput').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+ /*account*/
+        function previewImage() {
+            const input = document.getElementById('profile-image-input');
+            const image = document.querySelector('.ui-w-80');
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                image.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function resetImage() {
+            const image = document.querySelector('.ui-w-80');
+            image.src = 'https://bootdey.com/img/Content/avatar/avatar1.png';
+        }
+		     // Countdown Timer
+        function startCountdown(durationInSeconds) {
+            let timer = durationInSeconds;
+            const countdownTimer = document.getElementById('countdown-timer');
+
+            const intervalId = setInterval(function () {
+                const hours = Math.floor(timer / 3600);
+                const minutes = Math.floor((timer % 3600) / 60);
+                const seconds = timer % 60;
+
+                countdownTimer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+
+                if (--timer < 0) {
+                    clearInterval(intervalId);
+                    countdownTimer.textContent = 'Time Expired';
+                    // Additional actions when time expires
+                }
+            }, 1000);
+        }
+
+        // Update countdown timer based on selected rental duration
+        function updateTimer() {
+            clearInterval(window.intervalId); // Clear existing interval
+            const rentalDuration = parseInt(document.getElementById('rental-duration').value, 10);
+            const durationInSeconds = rentalDuration * 24 * 60 * 60; // Convert days to seconds
+            startCountdown(durationInSeconds);
+        }
+
+        // Attach event listener to rental duration selection
+        document.getElementById('rental-duration').addEventListener('change', updateTimer);
+
+        // Initialize countdown with default duration (1 day)
+        updateTimer();
+		
+		// Display cars taken on rent
+        const takenOnRentInfo = document.getElementById('taken-on-rent-info');
+        if (carsOnRentData.length > 0) {
+            takenOnRentInfo.innerHTML = '';
+            carsOnRentData.forEach((car) => {
+                const carInfoDiv = document.createElement('div');
+                carInfoDiv.innerHTML = `
+                    <p><strong>Car Model:</strong> ${car.model}</p>
+                    <p><strong>Rent Amount:</strong> ${car.rentAmount}</p>
+                    <p><strong>Rental Duration:</strong> ${car.rentalDuration} Days</p>
+                    <p><strong>Start Date:</strong> ${car.startDate.toDateString()}</p>
+                    <div class="form-group">
+                        <label class="form-label">Time Remaining</label>
+                        <div class="countdown-timer-${car.model.replace(/\s/g, '-')}" class="text-danger"></div>
+                    </div>
+                    <hr>
+                `;
+                takenOnRentInfo.appendChild(carInfoDiv);
+
+                // Start countdown timer for each car
+                startCountdownForCar(car.model, car.rentalDuration * 24 * 60 * 60, car.startDate);
+            });
+        } else {
+            takenOnRentInfo.innerHTML = '<p>No cars taken on rent yet.</p>';
+        }
+
+        // Function to start countdown timer for a specific car
+        function startCountdownForCar(carModel, durationInSeconds, startDate) {
+            const intervalId = setInterval(function () {
+                const now = new Date();
+                const timeDiffInSeconds = Math.floor((startDate.getTime() + durationInSeconds * 1000 - now.getTime()) / 1000);
+
+                if (timeDiffInSeconds < 0) {
+                    clearInterval(intervalId);
+                    document.querySelector(`.countdown-timer-${carModel.replace(/\s/g, '-')}`).textContent = 'Time Expired';
+                    // Additional actions when time expires
+                } else {
+                    const hours = Math.floor(timeDiffInSeconds / 3600);
+                    const minutes = Math.floor((timeDiffInSeconds % 3600) / 60);
+                    const seconds = timeDiffInSeconds % 60;
+
+                    document.querySelector(`.countdown-timer-${carModel.replace(/\s/g, '-')}`).textContent = `${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        }
+
+
+  
+
+</script>
+
+</body>
+</html>

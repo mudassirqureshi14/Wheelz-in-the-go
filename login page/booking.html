@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Booking-WheelZ onthe Go</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-........" crossorigin="anonymous" />
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(v300batch2-nunoon-13-removebg.png);
+  background-size: cover;
+  opacity: 0.5; /* Adjust the opacity value for the background image */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+body {
+  background: #8e79a9; /* Background color appears in front of the image */
+  z-index: 0; /* Set a z-index to make sure the content is in front of the pseudo-element */
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.8); /* Adjust the background color and alpha as needed */
+  
+
+}
+
+
+
+
+
+        .nav-items {
+           font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the navigation items */
+            flex-grow: 1; /* Occupy remaining space */
+            font-size: 20px;
+           
+        }
+
+        .nav-item {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            position: relative;
+            overflow: hidden;
+            font-size: 25px;
+
+        }
+
+        .nav-item::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+            
+        }
+
+        .nav-item:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search-icon {
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .icon {
+            color: white;
+            cursor: pointer;
+            font-size: 30px;
+            margin-right: 10px; /* Adjust as needed */
+        }
+        .icon:hover {
+    background-color: rgb(250, 207, 150); 
+    transition: background-color 0.3s ease; 
+}
+
+      
+        .logo img {
+            height: 60px; /* Adjust the height as needed */
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+        .Name {
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+       
+        margin-top: 5px;
+            position: relative;
+            overflow: hidden;
+
+        }
+       
+
+    .search-icon {
+        color: rgb(255, 255, 255); /* Change to your desired color */
+        font-size: 20px; /* Adjust the font size as needed */
+    }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                display: none;
+            }
+
+            .navbar.responsive .nav-items {
+                display: flex;
+                justify-content: center;
+                width: 100%; /* Occupy full width on mobile */
+            }
+
+            .navbar.responsive .icon {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+
+            .search-box {
+                order: -1; /* Move search box to the left on mobile */
+            }
+            
+        }
+
+    /*search car*/
+    .navebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+
+
+}
+
+.location-container {
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+gap:20px;  
+}
+
+.location-select {
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+   margin-right: 30px;
+   background-color: rgba(128, 128, 128, 0.5);
+}
+
+.car-container {
+  margin: 0 10px;
+}
+
+.car-select {
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.date-container, .time-container {
+  margin: 0 10px;
+  
+}
+
+#pick-up-date {
+
+   width: 80%;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+#pick-up-time {
+  width: 70%;
+  height: 50px;
+  padding: 0 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.search-button {
+  background-color:rgb(247,125,10);
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+   width: 10%;
+   height: 50px;
+   margin-top: 16px;
+   margin-right: 10px;
+  
+}
+
+
+.imgcontainer {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-image: url(bg-banner.jpg);
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgcontainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28,30,50, 0.9); /* Adjust the alpha (last value) for transparency */
+}
+
+.imgcontainer h1 {
+    position: relative;
+    z-index: 1; /* Place the text above the overlay */
+}
+
+
+
+.welcome p{
+    font-size: 50px;
+font-weight: 800;
+
+}
+.welcome h1{
+    font-size: 90px;
+    font-weight: 900;
+    color: orange;
+}
+
+        /*slider logo*/
+        @keyframes slide {
+    form {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+  }
+
+  .logos {
+    overflow: hidden;
+    padding: 60px 0;
+   
+
+background-image: url(vbatch22.png);
+   
+    white-space: nowrap;
+    position: relative;
+
+  }
+  .logos:before ,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width:250px ;
+    height: 100%;
+    content: "";
+    z-index: 2;
+
+  } 
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255,255,255,0), rgb(142,121,169));
+   
+}
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgb(142,121,169));
+   
+}
+
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  .logos-slide {
+    display: inline-block;
+
+    animation: 35s slide infinite linear;
+  }
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }
+  
+
+  footer {
+      background-color:rgb(43,46,74);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      flex: 1;
+      text-align: left;
+    }
+
+    footer h2 {
+      color: #fbb710; /* Yellow color for "GET IN TOUCH" */
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin: 5px 0;
+    }
+
+    footer .newsletter {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    footer input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      background-color:rgb(247,125,10); /* Yellow color for the button */
+      color: #333;
+      padding: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    footer button:hover {
+            background-color: rgb(180, 87, 1);
+        }
+    footer a {
+        text-decoration: none;
+        color: white;
+    }  
+
+    /* Main container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* User icon button */
+.dropdown .nav-item {
+  padding: 10px;
+  border: none;
+  background: none; /* Remove the background color */
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  transform-origin: top right;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Hover effect on links */
+.dropdown-content a:hover {
+  background-color: #6c3a8d;
+}
+
+/* Show dropdown on button click */
+.dropdown.active .dropdown-content {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Main navigation container */
+.nav-items {
+  display: flex;
+}
+
+/* Individual navigation item */
+.nav-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Dropdown container */
+.dropdowns {
+  position: relative;
+}
+
+/* Dropdown button */
+.services-dropdown {
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.services-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Active state for showing the dropdown */
+.services-menu.active {
+  display: block;
+}
+
+/* Dropdown links */
+.services-menu a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover effect on links */
+.services-menu a:hover {
+    background-color: #6c3a8d;
+}
+
+.dropdowns.active .dropdown-contents {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.dropdowns {
+  position: relative;
+  display: inline-block;
+}
+
+/* User icon button */
+.dropdowns .nav-item {
+  padding: 10px;
+  border: none;
+  background: none; /* Remove the background color */
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-contents {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(100, 80, 125, 0.9); /* Adjust the background color and alpha as needed */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  transform-origin: top right;
+}
+
+/* Dropdown links */
+.dropdown-contents a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+  
+    <div class="navbar" id="myNavbar">
+        <!-- <div class="icon" onclick="toggleNavbar()">&#9776;</div> -->
+        <div class="logo">
+            <img src="ourlogo.png">
+        </div>
+    
+        <a href="Home.html" class="Name"><b>WheelZ onthe Go</b></a>
+    
+        <div class="nav-items">
+            <a href="Home.html" class="nav-item">Home</a>
+            <div class="dropdowns">
+              <button class="nav-item services-dropdown" onclick="toggleDropdown()">
+                Services <i class="fas fa-caret-down"></i>
+              </button>
+              <div class="dropdown-contents services-menu">
+                <a href="Rentee.html" class="nav-link">
+                    <i class="fas fa-car"></i> Rent Car
+                </a>
+                <a href="booking.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i> Booking
+                </a>
+               
+              </div>
+            </div>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="Contact.html" class="nav-item">Contact</a>
+          </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <button style="border: none; padding: 8px; cursor: pointer; background-color: transparent;" onclick="performSearch()">
+                <i class="search-icon bx bx-search-alt"></i>
+            </button>
+            <div class="dropdown">
+                <button class="nav-item">
+                  <i class="fas fa-user"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="account.html" class="nav-link">
+                        <i class="fas fa-user"></i> Account Info
+                    </a>
+                    <a href="rentacarweb.html" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+    <div class="navebar">
+        <div class="location-container">
+          <div>
+            <span style="color: white;"><b>Pickup Location</b></span>
+            <select id="pickup-location" class="location-select">
+              <option selected>Pickup Location</option>
+              <option value="1">Location 1</option>
+              <option value="2">Location 2</option>
+              <option value="3">Location 3</option>
+            </select>
+          </div>
+          <div>
+            <span style="color: white;"><b>Drop Location</b></span>
+            <select id="drop-location" class="location-select">
+              <option selected>Drop Location</option>
+              <option value="1">Location 1</option>
+              <option value="2">Location 2</option>
+              <option value="3">Location 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="car-container">
+          <span style="color: white;"><b>Select A Car</b></span>
+          <select id="car-selection" class="car-select">
+            <option selected>Select A Car</option>
+            <option value="1">Car 1</option>
+            <option value="2">Car 2</option>
+            <option value="3">Car 3</option>
+          </select>
+        </div>
+        <div class="date-container">
+          <span style="color: white;"><b>Pick up date</b></span>
+          <input type="date" id="pick-up-date">
+        </div>
+        <div class="time-container">
+            <span style="color: white;"><b>Pick Up Time</b></span>
+          <input type="time" id="pick-up-time" >
+          
+        </div>
+        <button type="button" class="search-button">Search</button>
+      </div>
+   <br>
+   <div class="welcome">
+    <center><div class="imgcontainer">
+        <h1>BOOKING</h1>
+        </div>
+</div>
+   
+    <div class="container-fluid pt-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase mb-5">Mercedes Benz R3</h1>
+            <div class="row align-items-center pb-2">
+                <div class="col-lg-6 mb-4">
+                    <img class="img-fluid" src="img/bg-banner.jpg" alt="">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-2">$99.00/Day</h4>
+                    <div class="d-flex mb-3">
+                        <h6 class="mr-2">Rating:</h6>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                           <span style="color: white;"> <small>(250)</small></span>
+                        </div>
+                    </div>
+                   <span style="color: rgb(43,46,74); font-weight: bolder;"> <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt</p></span>
+                    <div class="d-flex pt-1">
+                        <h6>Share on:</h6>
+                        <div class="d-inline-flex">
+                            <a class="px-2" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-n3 mt-lg-0 pb-4">
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span style="color: white;">Model: 2015</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-cogs text-primary mr-2"></i>
+                    <span style="color: white;">Automatic</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span style="color: white;">20km/liter</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-eye text-primary mr-2"></i>
+                    <span style="color: white;">GPS Navigation</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span style="color: white;">Model: 2015</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-cogs text-primary mr-2"></i>
+                    <span style="color: white;">Automatic</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span style="color: white;">20km/liter</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-eye text-primary mr-2"></i>
+                    <span style="color: white;">GPS Navigation</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span style="color: white;">Model: 2015</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-cogs text-primary mr-2"></i>
+                    <span style="color: white;">Automatic</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span style="color: white;">20km/liter</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-eye text-primary mr-2"></i>
+                    <span style="color: white;">GPS Navigation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container-fluid pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Personal Detail</h2>
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="First Name" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Last Name" required="required">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="email" class="form-control p-4" placeholder="Your Email" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Mobile Number" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="mb-4">Booking Detail</h2>
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <select class="custom-select px-4" style="height: 50px;">
+                                    <option selected>Pickup Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div>
+                            <div class="col-6 form-group">
+                                <select class="custom-select px-4" style="height: 50px;">
+                                    <option selected>Drop Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
+                                        data-target="#date2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="time" id="time2" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                                        data-target="#time2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <select class="custom-select px-4" style="height: 50px;">
+                                    <option selected>Select Adult</option>
+                                    <option value="1">Adult 1</option>
+                                    <option value="2">Adult 2</option>
+                                    <option value="3">Adult 3</option>
+                                </select>
+                            </div>
+                            <div class="col-6 form-group">
+                                <select class="custom-select px-4" style="height: 50px;">
+                                    <option selected>Select Child</option>
+                                    <option value="1">Child 1</option>
+                                    <option value="2">Child 2</option>
+                                    <option value="3">Child 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-3 px-4" rows="3" placeholder="Special Request" required="required"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bg-secondary p-5 mb-5">
+                        <h2 class="text-primary mb-4">Payment</h2>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <label class="custom-control-label" for="paypal">Paypal</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <label class="custom-control-label" for="directcheck">Direct Check</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-block btn-primary py-3">Reserve Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="logos">
+        <div class="logos-slide">
+        <img src="bmw.png">
+        <img src="audi.png">
+        <img src="suzuki.png">
+        <img src="honda.png">
+        <img src="mitsubishi.png">
+        <img src="hyundai.png">
+        <img src="ford.png">
+        <img src="kia.png">
+        <img src="changan.png">
+        <img src="toyota.png">
+        </div>
+        <div class="logos-slide">
+            <img src="bmw.png">
+            <img src="audi.png">
+            <img src="suzuki.png">
+            <img src="honda.png">
+            <img src="mitsubishi.png">
+            <img src="hyundai.png">
+            <img src="ford.png">
+            <img src="kia.png">
+            <img src="changan.png">
+            <img src="toyota.png">
+            </div>
+        </div>
+    <footer>
+        <div>
+          <h2>GET IN TOUCH</h2>
+          <p>Location, City, Country</p>
+          <p>+012 345 67890</p>
+          <p>info@example.com</p>
+        </div>
+    
+        <div>
+          <h2>FOLLOW US</h2>
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+          </ul>
+        </div>
+    
+        <div>
+          <h2>USEFUL LINKS</h2>
+          <ul>
+            <a href="#"><li>Private Policy</li></a>
+           <a href="#"> <li>Term & Conditions</li></a>
+           <a href="#"> <li>New Member Registration</li></a>
+           <a href="#"><li>Affiliate Programme</li></a>
+           <a href="#"><li>Return & Refund</li></a>
+           <a href="#"> <li>Help & FAQs</li></a>
+           <a href="#"> <li>CAR GALLERY</li></a>
+          </ul>
+        </div>
+        <div>
+            <div class="newsletter">
+                <h2>NEWSLETTER</h2>
+                <p>Stay updated with our latest news and offers!  And give us a feedback about how was your experience here on our site.</p>
+                <input type="email" placeholder="Your Feedback">
+               <button>Submit</button>
+              </div>
+          </div>
+        
+    
+      </footer>
+
+<script>
+
+    
+document.addEventListener('DOMContentLoaded', function () {
+  var dropdownButton = document.querySelector('.dropdown .nav-item');
+  var dropdownContainer = document.querySelector('.dropdown');
+
+  dropdownButton.addEventListener('click', function () {
+    dropdownContainer.classList.toggle('active');
+  });
+
+  // Close the dropdown when clicking outside of it
+  window.addEventListener('click', function (event) {
+    if (!dropdownContainer.contains(event.target)) {
+      dropdownContainer.classList.remove('active');
+    }
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var dropdownButton = document.querySelector('.dropdowns .nav-item');
+  var dropdownContainer = document.querySelector('.dropdowns');
+
+  dropdownButton.addEventListener('click', function () {
+    dropdownContainer.classList.toggle('active');
+  });
+
+  // Close the dropdown when clicking outside of it
+  window.addEventListener('click', function (event) {
+    if (!dropdownContainer.contains(event.target)) {
+      dropdownContainer.classList.remove('active');
+    }
+  });
+});
+
+</script>
+    
+  
+</body>
+
+</html>
